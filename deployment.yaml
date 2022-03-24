@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alcatraz-deployment
+  labels:
+    app: alcatraz
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: alcatraz
+  template:
+    metadata:
+      labels:
+        app: alcatraz
+    spec:
+      containers:
+      - name: alcatraz
+        image: alcatraz:0.1
+        ports:
+        - containerPort: 80
